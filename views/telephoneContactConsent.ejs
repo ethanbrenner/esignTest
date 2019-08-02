@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>telephoneConsent</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+</head>
+<script src = "https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<script src = "signaturePadFunctionality.js"></script>
+<link rel="stylesheet" href="styles.css" type = "text/css">
+
+<body onload = "onstart();" id = "body" style = "zoom:100%;position:absolute" >
+     <div class = "header sticky" id = "appHeader">
+        <div class = "row">
+            <div class = "col-1" style = "height:85px; padding:13px">
+                <div style ="text-align:center;"><img src="../logo.png" alt="Logo" width = "60" height = "60" ></div>
+            </div>
+            <div class = "col-1 documentText headerText" ><b>E-Signature</b></div>
+            <div class = "col-1" style ="color:white;border-left: 2px solid grey;height:75px">Spacing Text</div>
+            <div class = "col-5 headerText">
+                <div class = "documentText " style = "text-align:left"><b>Please read the entire document before signing</b></div>
+            </div>
+            <div class = "col-2" style = "text-align:right;height:85px; padding-top:20px">
+                <input  type = "button" id = "spanishButton" name = "Spanish" value = "Spanish">
+            </div>
+            <div class = "col-2" style = "text-align:center;height:85px; padding-top:24px">
+                <button><img src = "../zoomIn.png" alt = "zoomIn" style = "height: 21px; width:21px" onclick = "zoomIn();"></button>
+                <button ><img src = "../zoomOut.png" alt = "zoomOut"style = "height:21px;width:21px" onclick = "zoomOut();"></button>
+            </div>
+        </div>
+    </div>
+    <div class = "content">
+        <h1 class = "col-12 appTitle" style = "font-size: 30px">Telephone Contact Consent</h1>
+        <div class = "row">
+            <div class = "col-1" style = "color:white">Spacing Text </div>
+            <div class = "col-10 documentText">
+                <p>We want to help you reach your financial and personal goals. In order to do this, we would like to offer you tax and other products and services that may 
+                    benefit you and contact you regarding your account. In certain circumstances, we are required to obtain your consent prior to contacting you.
+                </p>
+                <p style = "font-weight: bold">By signing this consent, you authorize HRB Tax Group, Inc.; Its affiliates; the agents, contractors, and service providers 
+                of HRB Tax Group, Inc.; and Axos Bank, provider of financial products to HRB Tax Group, Inc. clients (collectively "us", "we" or "our") to <u>call or text</u>
+                    you with: 
+                    <ol>
+                        <li>
+                            product and service offers using an automated telephone dialing system prerecorded messages; or
+                        </li>
+                        <li>
+                            messages regarding your account, including debt collection and services.
+                        </li>
+                    </ol>                
+                </p>
+                <p>This consent applies to the following telephone number(s) that you have provided to us, which may include your mobile number:</p>
+            </div>
+            <div class = "col-1" style = "color:white">Spacing Text </div>
+        </div>
+        <!--the two telephone number text fields will go here-->
+        <div class ="row">
+            <div class = "col-1" style = "color:white">Spacing Text </div>
+            
+            <div class = "col-10">
+                <input type ="tel" value = "(316)-123-4567">
+                
+            </div>
+            <div class = "col-1" style = "color:white">Spacing Text </div>
+        </div>
+        
+        <div class ="row">
+            <div class = "col-1" style = "color:white">Spacing Text </div>
+            
+            <div class = "col-10">
+              <input type = "tel" value = "(316)-890-1234">
+            </div>
+            <div class = "col-1" style = "color:white">Spacing Text </div>
+        </div>
+
+        <div class = "row">
+        <div class = "col-1" style = "color:white">Spacing Text </div>
+            <div class = " col-10 documentText">
+                <p>By signing this consent, you verify that the above telephone numbers(s) belong to you and not a family member or anyone else. You are not required
+                    to complete this form to purhcase or receive our services. You understand that even if you do not sign this consent, we may still contact you as 
+                    permitted by law. <br>For additional information about this consent, including on how to opt-out, contact us at <br>  1-877-723-5458 (toll free).
+                </p>
+            </div>
+            <div class = "col-1" style = "color:white">Spacing Text </div>
+        </div>
+    <!--client signature and date canvases with text labels-->
+        <div class = "row">
+            <div class = "col-1" style = "color:white"> Spacing Text </div>
+            <div class = "col-5" style = "text-align:center"><span class = "documentText">Name</span></div> 
+            <div class = "col-4" style = "text-align: center"><span class = "documentText" > Signature</span></div>
+            <div class = "col-1" style = "text-align: center"><span class = "documentText" > Date</span></div>
+            <div class = "col-1" style = "color:white"> Spacing Text </div>
+        </div>
+        <div class = "row documentText">
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+                <div class = "col-1" style = "height: 56px; text-align:center;" ><span class = "documentText signatureLabels" style = "position:relative; top:30px">Client</span></div>
+                <div class = "col-3 signatureLabels " style = " height: 56px; text-align:center" > 
+                    <input type = "text" class = "signatureUnderline applicationNameTextbox documentText" value = " John Snow">
+                </div>
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+                <div class = "col-4" style = "text-align:center"> 
+                        <canvas id = "outputImage" class = "signatureboxes checkeredBorder touchstart" height = "56" width = "195"></canvas>
+                </div>
+                <div class = "col-1 " style = "text-align: center"> 
+                        <canvas id = "clientDate" class = "dateField signatureUnderline" height = "56" width = "100"></canvas>
+                    </div> 
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+            </div>
+
+            
+            <div class = "row" style = "color:white"> spacing text</div>
+
+            <!--Spouse sig and date canvas w/ labels-->
+            <div class = "row documentText ">
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+                <div class = "col-1" style = "height: 56px; text-align:center;" ><span class = "documentText signatureLabels" style = "position:relative; top:30px">Spouse </span></div>
+                <div class = "col-3 signatureLabels" style = "text-align: center;height: 56px;">
+                        <input type = "text" class = "signatureUnderline applicationNameTextbox documentText" value = " Hannah Snow">
+                </div>
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+                <div class = "col-4" style = "text-align:center">
+                        <canvas id = "spouseOutputImage" class = "signatureboxes signatureUnderline checkeredBorder" height = "56" width = "195"></canvas>
+                </div>           
+                <div class = "col-1" style = "text-align:center">
+                        <canvas id = "spouseDate" class = "dateField signatureUnderline" height = "56" width = "100"></canvas>
+                    </div> 
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+            </div>
+            <div class = "row">
+                <div class = "col-1" style = "color:white"> Spacing Text</div>
+                <div class = "col-10"><span class = "documentText">(If married and Spouse is present, Spouse must also sign.)</span>
+                </div>
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+            </div>
+
+            <!--tax professional line, not in use currently-->
+            <div class = "row">
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+                <div class = "col-2" style = "height: 56px; " >
+                    <span class = "documentText signatureLabels" style = "position:relative; top:30px">Tax Professional:</span>
+                </div>
+                <div class = "col-4" style = "height: 56px; border-bottom: 1px solid black">
+                </div>
+                <div class = "col-1" style = "color:white"> Spacing Text</div>
+                <div class = "col-1" style = "height:56px;">
+                        <span class = "documentText signatureLabels" style = "position:relative; top:30px;">Date: </span>
+                        
+                </div>
+                <div class = "col-2" style = "height:56px;color:white; border-bottom: 1px solid black"> Spacing Text</div>
+                <div class = "col-1" style = "color:white">Spacing Text</div>
+            </div>
+
+        <!--creating white space between text and navigation buttons-->
+        <div class = "row" style = "color:white"> spacing text</div>
+        <div class = "row" style = "color:white"> spacing text</div>
+        <div class = "row" style = "color:white"> spacing text</div>
+
+        <!--Navigation buttons-->
+        <div class = "row">
+        <div class = "col-1" style = "color:white"> Spacing Text</div>
+            <div class = "col-5">
+                <input type = "submit" value = "Decline" id = "declinebutton" onclick = "goBack();">
+            </div>
+            <div class = "col-5">
+                <input type = "submit" value = "Next" id = "nextbutton" disabled onclick = "next();">
+            </div>
+            <div class = "col-1" style = "color:white"> Spacing Text</div>
+        </div>
+
+
+        <!--helper form-->
+        <form id = "getObjects" action = "receiveFile" method = "get" >
+        </form>
+    <input type = "text" id = "spouseCode" name = "spouseCode" style = "display:none" value = "<%= spouseCode%>">
+
+
+
+    <!--Invisible helper objects-->
+        <canvas id = "outputPane" height = "225" width = "775" style = "display:none">
+            </canvas>
+        <input type = "text" id = "sigHolder" name = "sigHolder" value = "<%= sigObject %>" style = "display:none">
+        <input type ="text" id = "spouseSigHolder" name = "spouseSigHolder" value = "<%= spouseSigObject %>" style = "display:none">
+    </div>
+</body>
+
+<script>
+ 
+    var canvas = document.getElementById("outputImage");
+    var spouseCanvas = document.getElementById("spouseOutputImage");
+    var sigValue = document.getElementById('sigHolder').value;
+    var spouseSigValue = document.getElementById('spouseSigHolder').value;
+    var nextButton = document.getElementById("nextbutton");
+    var clickBtn = document.getElementsByClassName("touchstart")[0];
+   
+    
+    canvas.onmousedown = function(){
+        if(sigValue.length == 0)
+        {
+            console.log("No signature stored, need to sign the document first");
+        }
+        else
+        {  
+            console.log("signature value on tele consent: ");
+            console.log(sigValue);
+            document.getElementById("outputImage").classList.remove("checkeredBorder");
+            applySignature3(sigValue);
+        }
+    }
+    //might need to check first if we have the signature so it doesn't break
+    spouseCanvas.onmousedown = function(){
+        if(spouseSigValue.length == 0)
+        {
+            console.log("No spouse signature stored, need to sign first");
+        }
+        else
+        {
+            document.getElementById("spouseOutputImage").classList.remove("checkeredBorder");
+            applySignature2(spouseSigValue);
+        }
+    }
+
+
+
+function next(){
+    location.href = "/endForm";
+}
+
+
+clickBtn.addEventListener('click', function(event){
+    nextButton.disabled = false;
+});
+
+clickBtn.addEventListener('touchstart', function(event){
+    nextButton.disabled = false;
+});
+function buttonReset(){
+    nextButton.disabled = true;
+}
+
+function goBack(){
+    window.history.go(-1);
+}
+
+function refresh(){
+    var get = document.getElementById("getObjects");
+    get.submit();
+}
+
+function onstart(){
+        var color = "rgb(252, 232, 121)";
+       var client= document.getElementById("outputImage");
+       var spouse = document.getElementById("spouseOutputImage");
+       var ctxClient = client.getContext('2d');
+       var ctxSpouse = spouse.getContext('2d');
+
+        ctxClient.fillStyle = color;
+        ctxClient.fillRect(0,0,client.width,client.height);
+        ctxClient.font = "22px Roboto";
+        ctxClient.fillStyle = "black";
+        ctxClient.fillText("(JS) Sign Here",15,36);
+
+        ctxSpouse.fillStyle = color;
+        ctxSpouse.fillRect(0,0,spouse.width,spouse.height);
+        ctxSpouse.font = "22px Roboto";
+        ctxSpouse.fillStyle = "black";
+        ctxSpouse.fillText("(HS) Sign Here", 15, 36);
+    }
+</script>
+</html>
+
+<!--
+<div class = "col-3" style = "height:56px;">
+                    <span class = "documentText signatureLabels" style = "position:relative; top:30px">Date: </span>
+                    <input type = "text" class = "signatureUnderline applicationNameTextbox" disabled>
+             </div>-->

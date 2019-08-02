@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>esign demo</title>
+</head>
+<body>
+    <h1 id = "demotitle">E-Sign Demo</h1>
+    <input id = "redirectbutton" type = "button" value = "Redirect" onclick = reroute()>
+</body>
+<script>
+    function reroute(){
+        location.href = '/clientForm';
+    }
+</script>
+<style>
+    #demotitle{
+    font-size: 28px;
+    background-color: #eee;
+    border: 1px solid #888;
+    border-width: 2px;
+    width: 300px;
+    text-align:center;
+    }
+    #redirectbutton{
+    font-size: 16px;
+    background-color: #eee;
+    border:1px solid #888;
+    border-width: 1px;
+    text-align: center;
+    }
+    html{
+        overscroll-behavior: none;
+        
+    }
+</style>
+</html>

@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html{
+    overflow:auto;
+    overscroll-behavior: none;
+}
+body{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px; 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+}
+.col-1{width:8.33%;}
+.col-2{width:16.66%;}
+.col-3{width:25%;}
+.col-4{width:33.33%;}
+.col-5{width:41.66%;}
+.col-6{width:50%;}
+.col-7{width:58.33%;}
+.col-8{width:66.66%;}
+.col-9{width:75%;}
+.col-10{width:83.33%;}
+.col-11{width:91.66%;}
+.col-12{width:100%;}
+
+     [class*="col-"]{
+        float:left;  
+/*  border: 1px solid black; */
+        
+        
+     }
+     .row::after{
+         content:"";
+         clear:both;
+         display:table;
+     }
+    *{
+        box-sizing:border-box;  
+    }
+
+    #sketchpadapp {
+    /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+    .signatureboxes {
+    /*
+    
+    this doesn't do anything at the moment, leaving for future use
+    */
+    position: relative;
+    }
+    .userbuttons {
+        box-sizing:border-box;
+        padding-bottom:10px; 
+        /*padding-right:46px;*/
+    }
+    .userbuttonnext {
+        box-sizing:border-box;
+        padding-top: 36px;
+    }
+    .userbuttondecline{
+        box-sizing: border-box;
+        padding-top: 36px;
+    }
+    #mysketchpad {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    height:225px;
+    width:780px;
+    border:2px solid #111;
+    border-radius:2px;
+    position:relative; /* Necessary for correct mouse co-ords in Firefox */
+    }
+    #displaypad {
+    height: 225px;
+    widows: 780px;
+    border:2px solid #111;
+    border-radius:4px;
+    position:relative;
+    margin-left:280px;
+    }
+    #outputPane {
+    float:left;
+    border:2px solid #111;
+    border-radius:2px;
+    position: relative;
+    }
+    #outputImage {
+        /*
+        border:2px dotted grey;
+        border-radius:2px;
+        */
+        border-bottom: 1px solid black;
+        position:relative;
+        height:56px;
+        width:195px;
+    }
+    #spouseOutputImage{
+        border-bottom: 1px solid black;
+        /*
+        border:2px dotted grey;
+        border-radius: 2px;
+        */
+        position:relative;
+        height: 56px;
+        width: 195px;
+    }
+    #clearbutton {
+    font-size: 12px;
+    padding: 10px;
+    -webkit-appearance: none;
+    background: #eee;
+    border: 1px solid lightgrey;
+    float:right;
+    width: 100px;
+    font-weight: Bold;
+    font-family: "Roboto";
+    color: grey;
+    }
+    #submitbutton {
+    font-size: 15px;
+    padding:10px;
+    -webkit-appearance: none;
+    background: #b8fa4d;
+    border: 1px solid #888;
+    float:right;
+    width: 150px;
+    }
+    #nextbutton {
+    font-size: 15px;
+    padding:10px;
+    -webkit-appearance: none;
+    background: #eee;
+    border: 1px solid #888;
+    float:right;
+    width: 150px;
+    
+    }
+    #declinebutton {
+    font-size: 15px;
+    padding:10px;
+    -webkit-appearance: none;
+    background: #eee;
+    border: 1px solid #888;
+    float:left;
+    width: 150px;
+    }
+    #backbutton{
+    font-size:15px;
+    padding:10px;
+    -webkit-appearance:none;
+    background:#eee;
+    border: 1px solid #888;
+    float:left;
+    width:150px;
+    }
+    #undobutton {
+    font-size: 15px;
+    padding: 10px;
+    -webkit-appearance: none;
+    background: #eee;
+    border: 1px solid #888;
+    height: 40px;
+    width: 130px;
+    }  
+    #resetbutton {
+    font-size: 15px;
+    padding: 10px;
+    -webkit-appearance: none;
+    background:#eee;
+    border: 1px solid #888;
+    height: 40px;
+    width: 130px;
+    }
+    .appTitle {
+    font-size: 20px;
+    font-family: 'Roboto';
+    text-align:center;
+    margin: auto;
+    width: 100%;
+    }
+    .dataforms{
+        display:inline-block;  
+    }
+    .dateField{
+        float:bottom;
+        /*
+        border: 2px solid blue;
+        border-radius: 2px;
+        */
+        height: 56px;
+        width: 100px;
+        position: relative;
+    }
+    #sigInstructions{
+        text-align: center;
+        font-size: 30px;
+    }
+    .documentText{
+        font-family: "Roboto";
+        font-size: 16px;
+    }
+    #checkboxTable{
+        border-collapse: collapse;
+    }
+    table, td {
+        border: 1px solid black;
+      }
+    th,td{
+        padding:5px;
+        font-family: "Roboto";
+        font-size: 16px;
+    }
+    input.checks{
+        zoom:1.5;
+        
+    }
+    .signatureLabels{
+        text-align: left;
+        font-size:20px;
+    }
+    .signatureUnderline{
+        border-bottom: 1px solid black;
+        
+    }
+    .checkeredBorder{
+        border-left:4px solid red;
+        border-radius:2px;
+        background-color: solid rgb(252, 232, 121)
+    }
+    .applicationNameTextbox{
+        position:relative; 
+        top:30px;
+        outline: 0; 
+        border-width: 0 0 1px; 
+        border-color: black;
+        
+    }
+    .header{
+        height: 105px;
+        background: white;
+        color: black;
+        border-bottom: 1px solid lightgrey;
+        padding-top:15px;
+        
+
+    }
+    .headerText{
+        height:85px;
+        padding: 30px 0;
+        text-align:center
+    }
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+    .sticky + .content{
+        padding-top: 120px;
+    }
+    #spanishButton{
+        font-size: 12px;
+        font-weight: Bold;
+        font-family: "Roboto";
+        padding:10px;
+    }
+   
+    /*Scroll bar stuff and things*/
+    /* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+   
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: grey; 
+    
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}

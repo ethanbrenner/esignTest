@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>telephoneConsent</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+</head>
+<script src = "https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<script src = "signaturePadFunctionality.js"></script>
+<link rel="stylesheet" href="styles.css" type = "text/css">
+
+<body>
+    <h1 id = "appTitle">Telephone Contact Consent</h1>
+    <div class = "row col-12 documentText">
+        <p>We want to help you reach your financial and personal goals. In order to do this, we would like to offer you tax and other products and services that may 
+            benefit you and contact you regarding your account. In certain circumstances, we are required to obtain your consent prior to contacting you.
+        </p>
+        <p style = "font-weight: bold">By signing this consent, you authorize HRB Tax Group, Inc.; Its affiliates; the agents, contractors, and service providers 
+        of HRB Tax Group, Inc.; and Axos Bank, provider of financial products to HRB Tax Group, Inc. clients (collectively "us", "we" or "our") to <u>call or text</u>
+            you with: 
+            <ol>
+                <li>
+                    product and service offers using an automated telephone dialing system prerecorded messages; or
+                </li>
+                <li>
+                    messages regarding your account, including debt collection and services.
+                </li>
+            </ol>                
+        </p>
+        <p>This consent applies to the following telephone number(s) that you have provided to us, which may include your mobile number:</p>
+    </div>
+    
+    <div class ="row col-12">
+        <!--the two telephone number text fields will go here-->
+        <input type ="tel">
+        <input type = "tel">
+        <form action="/receiveFile" method = "get">
+            <input type = "text" id = "sigHolder" name = "sigHolder" value = "didn't work">
+            <input type = "submit" value = "get data" />
+        </form>
+    </div>
+    <a href="clientServiceAgreement.html">Temporary Link to the client service agreement </a>
+    <div class = "row col-12 documentText">
+        <p>By signing this consent, you verify that the above telephone numbers(s) belong to you and not a family member or anyone else. You are not required
+            to complete this form to purhcase or receive our services. You understand that even if you do not sign this consent, we may still contact you as 
+            permitted by law. <br>For additional information about this consent, including on how to opt-out, contact us at <br>  1-877-723-5458 (toll free).
+        </p>
+    </div>
+    <div class = "row">
+        <div class = "col-3 signatureboxes">
+            <!--was 150 and 733-->
+                       
+            <canvas id = "outputImage" height = "75" width = "300"></canvas>
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-5">
+            Apply Taxpayer Signature Here:
+        </div>
+              
+    </div>
+    <canvas id = "outputPane" height = "225" width = "900" style = "display:none">
+        </canvas>
+        
+    <!--client signature and date fields go here, these will just need to be applied when the field is pressed-->
+
+    
+        
+
+</body>
+<script>
+ 
+    var canvas = document.getElementById("outputImage");
+    var temp = returnData();
+    console.log(temp);
+    canvas.onmousedown = function(){
+        if(temp.length == 0)
+        {
+            console.log("No signature stored, need to sign the document first");
+        }
+        else
+        {
+            applySignature3(temp);
+        }
+    }
+
+
+</script>
+</html>

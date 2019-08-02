@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw your Signature</title>
+</head>
+<script src ="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<link rel="stylesheet" href="styles.css" type = "text/css">
+
+
+
+<body  onload = "init()" style = "position:absolute" >
+    <div class = "header sticky" id = "appHeader">
+        <div class = "row" >
+            <div class = "col-1" style = "height:85px; padding:13px">
+                <div style ="text-align:center;"><img src="../logo.png" alt="Logo" width = "60" height = "60" ></div>
+            </div>
+            <div class = "col-1 documentText headerText" ><b>E-Signature</b></div>
+            <div class = "col-7" style ="color:white;">Spacing Text</div>
+            
+            <div class = "col-3" style = "text-align:right;height:85px; padding-top:24px; padding-right:43px">
+                <input type="submit" value="Erase" id="clearbutton" onclick="clearCanvas(canvas), buttonReset();">
+            </div>
+            
+        </div>
+    </div>
+
+    <div class = "content">
+        
+        
+        <div id = "sketchpadapp">
+            <div class = "row col-12 signatureboxes">
+                <canvas class = "click touchmove" id = "mysketchpad" height = "225" width = "780">
+                </canvas>
+                <script src = "signaturePadFunctionality.js"></script>
+            </div>
+            <div class ="row col-12" id = "sigInstructions">
+                Sign inside box:
+            </div>
+            
+            <div class ="row userbuttons">
+                <div class = "col-6">
+                    <input type = "submit" id = "backbutton" value = "Back" onclick = "goBack();">
+                    
+                    <!--<input type = "button" value = "Undo Mistake" id = "undobutton" onclick = "undo()">-->
+                </div>
+                <div class = "col-6">
+                        
+                    <form action="/clientForm_Signature" method = "post">
+                    <input type = "text"  id = "inputField" name = "inputField" value = "didn't work" style = "display:none">
+                        <input type="submit" value = "Submit Signature" id="submitbutton" onclick = "submitSignature();">
+                        <input type = "text" id = "code" name = "code" value = "<%= code %>" style = "display:none" >
+                        <input type = "text" id = "clientSigHolder" name = "clientSigHolder" value = "<%= clientSigHolder %>" style = "display:none">
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <a id="imgdlhelper" style="display:none;" href="" download="signature.png">&nbsp;</a>
+        <canvas style="display:none" id = "outputPane"></canvas>
+        
+        <!--this is in place for when the spouse needs to sign and the client signature can be stored here-->
+    </div>
+</body>
+
+<script>
+    var submitButton = document.getElementById("submitbutton");
+    var clickBtn = document.getElementsByClassName("touchmove")[0];
+
+    submitButton.disabled = true;
+
+    clickBtn.addEventListener('click', function(event){
+       submitButton.disabled = false;
+    });
+
+    clickBtn.addEventListener('touchmove', function(event){
+       submitButton.disabled = false;
+    });
+    function buttonReset(){
+        submitButton.disabled = true;
+    }
+    
+    function goBack(){
+        window.history.go(-1);
+    }
+
+    
+</script>
+
+</html>

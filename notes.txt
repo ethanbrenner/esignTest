@@ -1,0 +1,11 @@
+TIMEHERE 7-22-19
+
+changed overscroll behavior to none (pull to refresh should be disabled)
+added default color and text to signature canvases prior to being signed
+once client taps canvas to sign, the default will be replaced by the signature
+
+Need to:
+
+attempting media queries on the esignserver folder,
+
+3.1 should be a safe build to show in the presentation 

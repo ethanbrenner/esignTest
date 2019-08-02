@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TouchScreenPlayground</title>
+</head>
+<script src ="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<script src = "signaturePadFunctionality.js"></script>
+<link rel="stylesheet" href="styles.css" type = "text/css">
+<body id = "body" onload ="init();onstart();" style ="zoom:100%;position:absolute">
+    <div class = "header sticky" id = "appHeader">
+        <div class = "row">
+            <div class = "col-1" style = "height:85px; padding:13px">
+                <div style ="text-align:center;"><img src="../logo.png" alt="Logo" width = "60" height = "60" ></div>
+            </div>
+            <div class = "col-1 documentText headerText" ><b>E-Signature</b></div>
+            <div class = "col-1" style ="color:white;border-left: 2px solid grey;height:75px">Spacing Text</div>
+            <div class = "col-5 headerText">
+                <div class = "documentText " style = "text-align:left"><b>Please read the entire document before signing</b></div>
+            </div>
+            <div class = "col-2" style = "text-align:right;height:85px; padding-top:20px">
+                <input  type = "button" id = "spanishButton" name = "Spanish" value = "Spanish">
+            </div>
+            <div class = "col-2" style = "text-align:center;height:85px; padding-top:24px">
+                <button id = "zoomIn"><img src = "../zoomIn.png" alt = "zoomIn" style = "height: 21px; width:21px" onclick = "zoomIn();"></button>
+                <button id = "zoomOut"><img src = "../zoomOut.png" alt = "zoomOut"style = "height:21px;width:21px" onclick = "zoomOut();"></button>
+            </div>
+        </div>
+    </div>
+<div class = "content">
+    <div class ="row">
+        <div class = "col-12 appTitle">
+            <h3>CONSENT TO USE TAX RETURN INFORMATION</h3>
+        </div>
+    </div>
+    <div class = "row" >
+        <div class = "col-1" style = "color: white">Spacing Text</div>
+        <div class="col-10 documentText">
+            <p class = "documentText">We want to help you reach your financial goals. In order to do this, we would like to use your tax return information. The Intenal Revenue Code
+                requires that absent a specific exception we obtain your consent before we use information provided to us, HRB Tax Group, Inc., its subsidiaries, or their independently
+                owned and operated third-party franchisees (collectively, "Block Advisors") in connection with preparing your tax return.
+            </p>
+            <p>If you sign this form and check one or more of the boxes below, you authorize Block Advisors to use the specified tax return information for the designated purposes.
+                <b> Insert a checkmark in the corresponding box if you want to provide your consent to a specific use.</b>
+            </p>
+            <table id = "checkboxTable" >
+               <tr>
+                   <th colspan = "2">I authorize Block Advisors to use relevant information I provide in connection with the preparation of my 2018 tax return to:</th>
+                   
+               </tr> 
+               <tr>
+                   <td><input class = "checks" type = "checkbox"> </td>
+                   <td>determine my eligibility for, inform me about, offer me, internally report on, or research additional ways to pay my tax preparation
+                       fees, including Refund Transfers (TR);
+                   </td>
+               </tr>
+               <tr>
+                    <td><input class = "checks" type = "checkbox"> </td>
+                   <td>determine my eligibility for, inform me about, offer me, internally report on, or research prepaid debit cards, such as the H&R Block
+                       Emerald Prepaid Mastercard&#0174;;
+                   </td>
+               </tr>
+               <tr>
+                    <td><input class = "checks" type = "checkbox"> </td>
+                   <td>determine my eligibility to apply for, inform me about, offer me, internally report on, or research lines of credit and loans,
+                        including Refund Advance;
+                   </td>
+               </tr>
+               <tr>
+                    <td><input class = "checks" type = "checkbox"> </td>
+                    <td>determine my eligibility for, inform me about, offer me, internally report on, or research bookkeeping, accounting, payroll and other
+                        business services.
+                    </td>
+                </tr>
+            </table>
+            <p>your signature on this form by conditioning our tax return preparation services on your consent, your consent will not be valid. Your consent is valid for the
+                amount of time that you specify. If you do not specify the duration of your consent, your consent is valid for one year from the date of signature. <br>
+                If you believe your tax return information has been disclosed or used improperly in a manner unauthorized by law or without your permission, you may contact the 
+                Treasury Inspector General for Tax Administration (TIGTA) by telephone at 1-800-366-4484, or by email at <i>complaints@tigta.treas.gov</i>. <br>
+                Block Advisors will not use your tax return information for any other purpose in connection with this consent, except as required or permitted by law.
+            </p>
+            
+            <p class = "documentText">
+                <b>By completing and signing this form, you authorize Block Advisors to use the tax return information described above for the designated purpose through July 31
+                    , 2022. You may cancel your consent for any authorized use by calling 1-877-723-5458.</b></p> 
+        </div>
+        <div class = "col-1" style = "color:white"> Spacing Text</div>
+    </div>
+    <div id = "sketchpadapp">
+        <div class ="userbuttons">
+            <!--<input type = "button" value = "Reset Form" id = "resetbutton" onclick = "reset()">-->
+            <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas);" style = "display:none">
+            <!--<input type = "button" value = "Undo Mistake" id = "undobutton" onclick = "undo()">-->
+            <input type="submit" value = "Submit Signature" id="submitbutton" onclick = "submitSignature();" style = "display:none">
+        </div>
+    
+        <div class = "signatureboxes">
+            <!--was 150 and 735 before-->
+            <canvas id = "mysketchpad" height = "225" width = "780" style = "display:none;">
+            </canvas> 
+        </div>
+        
+        <!--Client signature and date canvas with text labels-->
+        <div class = "row documentText">
+            <div class = "col-1" style = "color:white">Spacing Text</div>
+            <div class = "col-6 ">
+                   <span class = "documentText signatureLabels" style = "text-align:left">Taxpayer's Signature </span> 
+                    <canvas id = "outputImage" class = "signatureboxes signatureUnderline checkeredBorder" height = "56" width = "195"></canvas>
+                </div>
+            <div class = "col-3 ">
+                   <span class = "documentText signatureLabels" style = "text-align: left">Date </span> 
+                    <canvas id = "clientDate" class = "dateField signatureUnderline" height = "56" width = "100"></canvas>
+                </div> 
+            <div class = "col-2" style = "color:white">Spacing Text</div>
+        </div>
+
+        <div class = "row documentText ">
+            <div class = "col-1" style = "color:white">Spacing text</div>
+            <div class = "col-6 signatureLabels " style = "text-align:left" > 
+                Taxpayer's Printed Name
+                <input type = "text" class = "signtureUnderline" style = "outline: 0; border-width: 0 0 1px; border-color: black" >
+            </div>
+            <div class = "col-5" style = "color:white">
+                Spacing text
+            </div>
+        </div>
+        <div class = "row" style = "color:white"> spacing text</div>
+
+        <!--Spouse sig and date canvas w/ labels-->
+        <div class = "row documentText ">
+            <div class = "col-1" style = "color:white">Spacing Text</div>
+            <div class = "col-6 " >
+                   <span class = "documentText signatureLabels" style = "text-align: left">Spouse's Signature (if MFJ) </span>
+                    <canvas id = "spouseOutputImage" class = "signatureboxes signatureUnderline checkeredBorder" height = "56" width = "195"></canvas>
+                </div>           
+            <div class = "col-3 ">
+                   <span class = "documentText signatureLabels" style = "text-align: left">Date </span>
+                    <canvas id = "spouseDate" class = "dateField signatureUnderline" height = "56" width = "100"></canvas>
+                </div> 
+            
+            <div class = "col-2" style = "color:white">Spacing Text</div>
+        </div>
+        <div class = "row documentText ">
+                <div class = "col-1" style = "color:white">Spacing text</div>
+                <div class = "col-6 signatureLabels" style = "text-align: left">
+                    Spouse's Printed Name (if MFJ) 
+                    <input type = "text" class = "signtureUnderline" style = "outline: 0; border-width: 0 0 1px; border-color: black">
+                </div>
+                <div class = "col-5" style = "color:white">
+                    Spacing Text
+                </div>
+        </div>
+
+        <!--Navigate buttons-->
+        <div class = "row">
+            <div class = "col-1" style = "color:white">Spacing Text</div>
+            <div class = "col-5 userbuttondecline">
+                    <input type = "submit" value = "Decline" id = "declinebutton" onclick = "navDecline()">
+            </div>
+            <div class = "col-5 userbuttonnext" >
+                <input type = "submit" value = "Next Form"  id = "nextbutton" disabled onclick = "navTelephone()"> 
+            </div>
+            <div class = "col-1" style = "color:white">Spacing Text</div>
+        </div>
+
+        <!--for calling the signature collection form the first time-->
+        <form id = "postForm" action="/signatureForm" method = "post"> 
+            <input type = "text" id = "spouseCode" name = "spouseCode"  value = '1' style = "display:none"> 
+        </form>
+
+            <a id="imgdlhelper" style="display:none;" href="" download="signature.png">&nbsp;</a>
+            <canvas id = "outputPane" height = "225" width = "780" style = "display:none">
+                </canvas>
+   </div>
+</div>
+</body>
+<script>
+    /*
+    function refreshAndApply(){
+        var temp = returnData();
+        if (temp.length == 0)
+        console.log("need to collect signature first");
+        else {
+            applySignature();
+        }
+    }
+    */
+ 
+    var canvas = document.getElementById("outputImage");
+    canvas.onmousedown = function(){
+        var postForm = document.getElementById("postForm");
+        postForm.submit();
+        /*
+       var url = location.href;
+       location.href = "/signatureForm";
+       */
+    }
+
+    function onstart(){
+        var color = "rgb(252, 232, 121)";
+       var client= document.getElementById("outputImage");
+       var spouse = document.getElementById("spouseOutputImage");
+       var ctxClient = client.getContext('2d');
+       var ctxSpouse = spouse.getContext('2d');
+
+        ctxClient.fillStyle = color;
+        ctxClient.fillRect(0,0,client.width,client.height);
+        ctxClient.font = "22px Roboto";
+        ctxClient.fillStyle = "black";
+        ctxClient.fillText("(JS) Sign Here",15,36);
+
+        ctxSpouse.fillStyle = color;
+        ctxSpouse.fillRect(0,0,spouse.width,spouse.height);
+        ctxSpouse.font = "22px Roboto";
+        ctxSpouse.fillStyle = "black";
+        ctxSpouse.fillText("(HS) Sign Here", 15, 36);
+    }
+</script>
+</html>
